@@ -38,12 +38,12 @@ This app automates classic strength programming by combining:
 
 ## 🧱 Future Plans
 
-✅ CLI prototype for testing (Python-only)
-🔜 REST API with Flask or FastAPI
-🔜 MongoDB workout history tracking
-🔜 React dashboard with charts (PRs, weekly volume, etc.)
-🔜 Authentication (JWT or OAuth)
-🔜 Mobile-responsive design
+- ✅ CLI prototype for testing (Python-only)
+- 🔜 REST API with Flask or FastAPI
+- 🔜 MongoDB workout history tracking
+- 🔜 React dashboard with charts (PRs, weekly volume, etc.)
+- 🔜 Authentication (JWT or OAuth)
+- 🔜 Mobile-responsive design
 
 ## 🚀 Getting Started
 

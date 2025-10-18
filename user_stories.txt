@@ -1,0 +1,13 @@
+As a user, when opening the app, I want to see my dashboard.
+As a user, when on my dashboard, I want to see my workout days.
+As a user, when I select a workout day, I want to see a workout overview.
+As a user, when I'm on a workout overview, i want to be able to select a "start training" button.
+
+
+Upper / Lower splits.  Alternating.
+
+
+Workout 1 Bench / Press
+Workout 2 Squat / Deadlift
+Workout 3 Press / Bench
+Workout 4 Deadlift / Squat

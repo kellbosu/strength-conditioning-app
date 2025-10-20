@@ -1,0 +1,21 @@
+{
+    "_id": "user_001",
+    "name": "Brandon Kell",
+    "email": "b@example.com",
+    "profile": {
+        "bodyweight_lb": 200,
+        "units": "imperial",
+        "time_zone": "America/New_York"
+    },
+    "maxes":{
+        "bench": 305,
+        "squat": 405,
+        "deadlift": 405,
+        "press": 185,
+        "last_updated": "2025-10-19"
+    },
+    "active_program_id": "prog_assign_987",
+    "created_at": "2025-10-18",
+    "updated_at": "2025-10-19"
+}
+

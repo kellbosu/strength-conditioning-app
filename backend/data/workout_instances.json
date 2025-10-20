@@ -1,0 +1,33 @@
+{
+  "_id": "wo_inst_001",
+  "user_id": "user_123",
+  "program_assignment_id": "prog_assign_987",
+  "date": "2025-10-20",
+  "phase_id": "phase_accum",
+  "wave_id": "wave_10s",
+  "workout_template_id": "wo_upper_a",
+  "name": "Upper A",
+  "exercises": [
+    {
+      "slot": 1,
+      "name": "Bench Press",
+      "lift_key": "bench",
+      "target_sets": [
+        {"set": 1, "load_lb": 183, "reps": 10, "percent": 0.60},
+        {"set": 2, "load_lb": 183, "reps": 10, "percent": 0.60},
+        {"set": 3, "load_lb": 183, "reps": 10, "percent": 0.60},
+        {"set": 4, "load_lb": 183, "reps": 10, "percent": 0.60},
+        {"set": 5, "load_lb": 183, "reps": 10, "percent": 0.60}
+      ],
+      "accessories": [
+        {
+          "name": "DB Row",
+          "target_sets": [{"set": 1, "load": "RPE 7", "reps": 10}, {"set": 2, "load": "RPE 7", "reps": 10},
+                          {"set": 3, "load": "RPE 7", "reps": 10}, {"set": 4, "load": "RPE 7", "reps": 10}]
+        }
+      ]
+    }
+  ],
+  "status": "planned",   
+  "created_at": "2025-10-19"
+}

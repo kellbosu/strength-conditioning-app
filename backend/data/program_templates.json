@@ -1,0 +1,77 @@
+{
+  "_id": "prog_tpl_10s_8s_5s_v1",
+  "name": "Classic 10s-8s-5s Cycle",
+  "version": 1,
+  "description": "Three-phase S&C template using wave schemes.",
+  "phases": [
+    {
+      "_id": "phase_accum",
+      "name": "Accumulate",
+      "weeks": 4,
+      "waves": [
+        {
+          "_id": "wave_10s",
+          "scheme": "10s",
+          "workouts": [
+            {
+              "_id": "wo_upper_a",
+              "name": "Upper A",
+              "day_hint": "Mon",
+              "exercises": [
+                {
+                  "slot": 1,
+                  "name": "Bench Press",
+                  "lift_key": "bench",
+                  "prescription": {
+                    "type": "percent_of_max",
+                    "percent": 0.60,
+                    "sets": 5,
+                    "reps": 10
+                  },
+                  "accessories": [
+                    {
+                      "name": "DB Row",
+                      "prescription": {"type": "straight", "load": "RPE 7", "sets": 4, "reps": 10}
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "phase_intens",
+      "name": "Intensify",
+      "weeks": 3,
+      "waves": [
+        { "_id": "wave_8s", "scheme": "8s", "workouts": [] }
+      ]
+    },
+    {
+      "_id": "phase_real",
+      "name": "Realize",
+      "weeks": 2,
+      "waves": [
+        { "_id": "wave_5s", "scheme": "5s", "workouts": [] }
+      ]
+    }
+  ],
+  "schemes": {
+    "10s": [
+      {"percent": 0.60, "sets": 5, "reps": 10}
+    ],
+    "8s": [
+      {"percent": 0.65, "sets": 5, "reps": 8}
+    ],
+    "5s": [
+      {"percent": 0.70, "sets": 6, "reps": 5}
+    ],
+    "3s": [
+      {"percent": 0.75, "sets": 7, "reps": 3}
+    ]
+  },
+  "tags": ["S&C", "hypertrophy", "strength"],
+  "created_at": "2025-10-18"
+}

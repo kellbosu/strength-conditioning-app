@@ -2,76 +2,138 @@
   "_id": "prog_tpl_10s_8s_5s_v1",
   "name": "Classic 10s-8s-5s Cycle",
   "version": 1,
-  "description": "Three-phase S&C template using wave schemes.",
+  "description": "Four-phase strength template (10s, 8s, 5s, 3s). Each phase contains waves: Accumulation, Intensification, Realization, Deload.",
   "phases": [
     {
-      "_id": "phase_accum",
-      "name": "Accumulate",
+      "_id": "phase_10s",
+      "name": "10s",
       "weeks": 4,
       "waves": [
-        {
-          "_id": "wave_10s",
-          "scheme": "10s",
-          "workouts": [
-            {
-              "_id": "wo_upper_a",
-              "name": "Upper A",
-              "day_hint": "Mon",
-              "exercises": [
-                {
-                  "slot": 1,
-                  "name": "Bench Press",
-                  "lift_key": "bench",
-                  "prescription": {
-                    "type": "percent_of_max",
-                    "percent": 0.60,
-                    "sets": 5,
-                    "reps": 10
-                  },
-                  "accessories": [
-                    {
-                      "name": "DB Row",
-                      "prescription": {"type": "straight", "load": "RPE 7", "sets": 4, "reps": 10}
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
+        { "_id": "wave_accumulate_10s",   "name": "Accumulation",   "scheme": "10s", "workouts": [] },
+        { "_id": "wave_intensify_10s",    "name": "Intensification","scheme": "10s", "workouts": [] },
+        { "_id": "wave_realize_10s",      "name": "Realization",    "scheme": "10s", "workouts": [] },
+        { "_id": "wave_deload_10s",       "name": "Deload",         "scheme": "10s", "workouts": [] }
       ]
     },
     {
-      "_id": "phase_intens",
-      "name": "Intensify",
+      "_id": "phase_8s",
+      "name": "8s",
       "weeks": 3,
       "waves": [
-        { "_id": "wave_8s", "scheme": "8s", "workouts": [] }
+        { "_id": "wave_accumulate_8s",    "name": "Accumulation",   "scheme": "8s",  "workouts": [] },
+        { "_id": "wave_intensify_8s",     "name": "Intensification","scheme": "8s",  "workouts": [] },
+        { "_id": "wave_realize_8s",       "name": "Realization",    "scheme": "8s",  "workouts": [] },
+        { "_id": "wave_deload_8s",        "name": "Deload",         "scheme": "8s",  "workouts": [] }
       ]
     },
     {
-      "_id": "phase_real",
-      "name": "Realize",
+      "_id": "phase_5s",
+      "name": "5s",
       "weeks": 2,
       "waves": [
-        { "_id": "wave_5s", "scheme": "5s", "workouts": [] }
+        { "_id": "wave_accumulate_5s",    "name": "Accumulation",   "scheme": "5s",  "workouts": [] },
+        { "_id": "wave_intensify_5s",     "name": "Intensification","scheme": "5s",  "workouts": [] },
+        { "_id": "wave_realize_5s",       "name": "Realization",    "scheme": "5s",  "workouts": [] },
+        { "_id": "wave_deload_5s",        "name": "Deload",         "scheme": "5s",  "workouts": [] }
+      ]
+    },
+    {
+      "_id": "phase_3s",
+      "name": "3s",
+      "weeks": 2,
+      "waves": [
+        { "_id": "wave_accumulate_3s",    "name": "Accumulation",   "scheme": "3s",  "workouts": [] },
+        { "_id": "wave_intensify_3s",     "name": "Intensification","scheme": "3s",  "workouts": [] },
+        { "_id": "wave_realize_3s",       "name": "Realization",    "scheme": "3s",  "workouts": [] },
+        { "_id": "wave_deload_3s",        "name": "Deload",         "scheme": "3s",  "workouts": [] }
       ]
     }
   ],
   "schemes": {
-    "10s": [
-      {"percent": 0.60, "sets": 5, "reps": 10}
-    ],
-    "8s": [
-      {"percent": 0.65, "sets": 5, "reps": 8}
-    ],
-    "5s": [
-      {"percent": 0.70, "sets": 6, "reps": 5}
-    ],
-    "3s": [
-      {"percent": 0.75, "sets": 7, "reps": 3}
-    ]
+    "10s": {
+      "accumulate": [ { "percent": 60, "sets": 5, "reps": 10 } ],
+      "intensify":  [
+        { "percent": 55, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 5 },
+        { "percent": 55, "sets": 3, "reps": 10 }
+      ],
+      "realize":    [
+        { "percent": 50, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 3 },
+        { "percent": 70, "sets": 1, "reps": 1 },
+        { "percent": 75, "sets": 1, "reps": "AMRAP" }
+      ],
+      "deload":     [
+        { "percent": 40, "sets": 1, "reps": 5 },
+        { "percent": 50, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 5 }
+      ]
+    },
+    "8s": {
+      "accumulate": [ { "percent": 65, "sets": 5, "reps": 8 } ],
+      "intensify":  [
+        { "percent": 60, "sets": 1, "reps": 3 },
+        { "percent": 65, "sets": 1, "reps": 3 },
+        { "percent": 70, "sets": 3, "reps": 8 }
+      ],
+      "realize":    [
+        { "percent": 50, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 3 },
+        { "percent": 70, "sets": 1, "reps": 2 },
+        { "percent": 75, "sets": 1, "reps": 1 },
+        { "percent": 80, "sets": 1, "reps": "AMRAP" }
+      ],
+      "deload":     [
+        { "percent": 40, "sets": 1, "reps": 5 },
+        { "percent": 50, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 5 }
+      ]
+    },
+    "5s": {
+      "accumulate": [ { "percent": 70, "sets": 6, "reps": 5 } ],
+      "intensify":  [
+        { "percent": 65, "sets": 1, "reps": 2 },
+        { "percent": 70, "sets": 1, "reps": 2 },
+        { "percent": 75, "sets": 4, "reps": 5 }
+      ],
+      "realize":    [
+        { "percent": 50, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 3 },
+        { "percent": 70, "sets": 1, "reps": 2 },
+        { "percent": 75, "sets": 1, "reps": 1 },
+        { "percent": 80, "sets": 1, "reps": 1 },
+        { "percent": 85, "sets": 1, "reps": "AMRAP" }
+      ],
+      "deload":     [
+        { "percent": 40, "sets": 1, "reps": 5 },
+        { "percent": 50, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 5 }
+      ]
+    },
+    "3s": {
+      "accumulate": [ { "percent": 75, "sets": 7, "reps": 3 } ],
+      "intensify":  [
+        { "percent": 70, "sets": 1, "reps": 1 },
+        { "percent": 75, "sets": 1, "reps": 1 },
+        { "percent": 80, "sets": 5, "reps": 3 }
+      ],
+      "realize":    [
+        { "percent": 50, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 3 },
+        { "percent": 70, "sets": 1, "reps": 1 },
+        { "percent": 75, "sets": 1, "reps": 1 },
+        { "percent": 80, "sets": 1, "reps": 1 },
+        { "percent": 85, "sets": 1, "reps": 1 },
+        { "percent": 90, "sets": 1, "reps": "AMRAP" }
+      ],
+      "deload":     [
+        { "percent": 40, "sets": 1, "reps": 5 },
+        { "percent": 50, "sets": 1, "reps": 5 },
+        { "percent": 60, "sets": 1, "reps": 5 }
+      ]
+    }
   },
-  "tags": ["S&C", "hypertrophy", "strength"],
-  "created_at": "2025-10-18"
+  "tags": ["S&C", "strength", "waves", "periodization"],
+  "created_at": "2025-10-20"
 }
+

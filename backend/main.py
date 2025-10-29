@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
-app - FastAPI(
+app = FastAPI(
     title = "Strength & Conditioning - Hello World",
     description = "Backend API for strength and conditioning app",
-    version= "0.1.0"
+    version= "0.1.0" #inital prototype
     )
 
 @app.get("/api/hello")

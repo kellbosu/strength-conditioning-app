@@ -19,7 +19,7 @@ This app automates classic strength programming by combining:
 
 | Layer | Technology | Purpose |
 |-------|-------------|----------|
-| Backend | **Python / Flask (or FastAPI)** | API + business logic |
+| Backend | **Python / FastAPI** | API + business logic |
 | Frontend | **React.js** | User interface |
 | Database | **MongoDB** | Stores user data, maxes, and history |
 | Other | JSON, REST, Modular Architecture | Configurable waves, clean separation of logic |
@@ -39,7 +39,7 @@ This app automates classic strength programming by combining:
 ## 🧱 Future Plans
 
 - ✅ CLI prototype for testing (Python-only)
-- 🔜 REST API with Flask or FastAPI
+- 🔜 REST API with FastAPI
 - 🔜 MongoDB workout history tracking
 - 🔜 React dashboard with charts (PRs, weekly volume, etc.)
 - 🔜 Authentication (JWT or OAuth)

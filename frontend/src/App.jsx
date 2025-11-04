@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <main style={{ fontFamily: "system-ui", padding: 24 }}>
-      <h1>Strength & Conditioning — Full Stack Hello 🌍</h1>
+      <h1>Strength & Conditioning — Full Stack Hello 🌍💪</h1>
       {data ? (
         <pre>{JSON.stringify(data, null, 2)}</pre>
       ) : (

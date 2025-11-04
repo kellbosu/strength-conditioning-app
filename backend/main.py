@@ -1,8 +1,16 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pymongo import MongoClient
 import os
 from datetime import datetime, timezone
+
+# Allowing CORS
+origins = [
+    "http://localhost:5173",  # React dev server
+    "http://127.0.0.1:5173"
+]
+
 
 #1) load.env
 load_dotenv()
@@ -20,6 +28,14 @@ app = FastAPI(
     description = "Backend API for strength and conditioning app",
     version= "0.1.0" #inital prototype
     )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/api/hello")
 def hello():

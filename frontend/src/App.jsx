@@ -12,11 +12,11 @@ export default function App() {
 
   return (
     <main style={{ fontFamily: "system-ui", padding: 24 }}>
-      <h1>Strength & Conditioning App — Hello 🌍💪</h1>
+      <h1>Stronk n' cerdunkining application </h1>
       {data ? (
         <pre>{JSON.stringify(data, null, 2)}</pre>
       ) : (
-        <p>Loading...</p>
+        <p>still on?...</p>
       )}
     </main>
   );

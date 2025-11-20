@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 import os
 from datetime import datetime, timezone
+from pydantic import BaseModel, Field
+from typing import Optional
 
 # Allowing CORS
 origins = [
@@ -36,6 +38,42 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+#MODELS 
+class MaxesBase(BaseModel):     # WHAT THE CLIENT SENDS
+    bench: int = Field(ge=0)
+    squat: int = Field(ge=0)    #ge = 0 means "greater than or equal to 0" -> basic validation
+    dead: int = Field(ge=0)
+    press: int = Field(ge=0)
+
+class MaxesOut(MaxesBase):      # WHAT THE API RETURNS (maxes + updated_at)
+    updated_at: Optional[datetime] = None
+
+
+#HELPER
+client = MongoClient(MONGO_URI)
+db = client[DB_NAME]
+
+
+#HELPER FUNCTION
+def _get_maxes_doc():
+    col = db["maxes"]
+    doc = col.find_one({"_id": "singleton"})
+    if not doc:
+        #default empty maxes for first-time use
+        return{
+            "_id": "singleton",
+            "bench": 0,
+            "squat": 0,
+            "dead": 0,
+            "press": 0,
+            "updated_at": None,
+        }
+    return doc
+
+
+####### API ENDPOINTS #######
 
 @app.get("/api/hello")
 def hello():
@@ -90,3 +128,35 @@ def roundtrip():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"DB error: {e.__class__.__name__}")
         
+
+#GET
+@app.get("/api/maxes", response_model=MaxesOut)
+def get_maxes():
+    doc = _get_maxes_doc()
+    # Strip Mongo’s _id and adapt to our Pydantic model
+    doc.pop("_id", None)
+    return MaxesOut(**doc)
+
+
+#PUT
+@app.put("/api/maxes", response_model=MaxesOut)
+def update_maxes(payload: MaxesBase):
+    now = datetime.now(timezone.utc)
+
+    col = db["maxes"]
+    # Build the full document we want in Mongo
+    doc = {
+        "_id": "singleton",
+        **payload.model_dump(),
+        "updated_at": now,
+    }
+
+    col.update_one(
+        {"_id": "singleton"},
+        {"$set": doc},
+        upsert=True,
+    )
+
+    # Return without _id
+    doc_out = {k: v for k, v in doc.items() if k != "_id"}
+    return MaxesOut(**doc_out)
